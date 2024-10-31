@@ -1,7 +1,8 @@
 # Pandas-like CSV Parser
 
-{: align="center"}
+<p align="center">
 <img src="./pics/header.png" width="600px">
+</p>
 
 ![](https://img.shields.io/badge/csv_parser-green)
 ![](https://img.shields.io/badge/release-b1.0-green)
@@ -97,8 +98,9 @@ g++ test.c -o test.out
 
 実行したら下の図の感じになっているはず。
 
-{: align="center"}
+<p align="center">
 <img src="./pics/sample.png" width="600px">
+</p>
 
 ## 簡単なAPIリファレンス
 
