@@ -3,6 +3,15 @@
 {: align="center"}
 <img src="./pics/header.png" width="600px">
 
+![](https://img.shields.io/badge/csv_parser-green)
+![](https://img.shields.io/badge/release-b1.0-green)
+![](https://img.shields.io/badge/release-developing-red)
+![](https://img.shields.io/badge/implementation-header_only-red)
+![](https://img.shields.io/badge/c%2B%2B%20stable%20ver-14%20%7C%2017-blue)
+![](https://img.shields.io/badge/compiler-gcc-blue)
+![](https://img.shields.io/badge/stable_OS-Linux(ubuntu)-yellow)
+![](https://img.shields.io/badge/license-MIT-yellow)
+![](https://img.shields.io/badge/developer-Keasha-purple)
 
 # C++でもpandasみたいなことがしたい!
 
