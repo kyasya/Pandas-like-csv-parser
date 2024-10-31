@@ -1,3 +1,10 @@
+<head>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pandas-like CSV Parser">
+    <meta name="twitter:description" content="Pandas-like CSV Parser">
+    <meta name="twitter:image" content="pics/header.png">
+</head>
+
 # Pandas-like CSV Parser
 
 <p align="center">
@@ -157,7 +164,7 @@ int main (int argc, char **argv)
         - `df.Get<型>("カラム名")`
         - テスト段階であることもあって`int`, `double`のみ対応. これから増やしていく.
 
-[リファレンスガイド(作成中)]() 
+[**リファレンスガイドはこちら**](https://kyasya.github.io/Pandas-like-csv-parser/)
 
 # 生まれた経緯
 

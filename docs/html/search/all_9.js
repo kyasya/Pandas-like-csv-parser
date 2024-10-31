@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['scan_21',['Scan',['../classKDataFrame.html#aead34c39c9a0cb636a1c65ed05d5fcee',1,'KDataFrame']]],
-  ['setfilename_22',['SetFilename',['../classKDataFrame.html#abedb6e12ab2d20f5efbdbf93d5b9cf71',1,'KDataFrame']]],
-  ['settablewidth_23',['SetTableWidth',['../classKDataFrame.html#a6f002c7d289dc1902198fd0d4d633e69',1,'KDataFrame']]],
-  ['stringto_24',['StringTo',['../KDataFrame_8h.html#aae9d002ff4c7e8b3cc3c0c703d487377',1,'KDataFrame.h']]]
+  ['tablewidthmax_24',['TableWidthMax',['../structKCsvStruct.html#aaac5aa95c68ee1f5b386d47185f86e5a',1,'KCsvStruct']]],
+  ['test_2ec_25',['test.c',['../test_8c.html',1,'']]],
+  ['tkeymap_26',['tKeyMap',['../KDataFrame_8h.html#a459b622b2ecedcc113c808673a417606',1,'KDataFrame.h']]],
+  ['tkeyumap_27',['tKeyUMap',['../KDataFrame_8h.html#a6aa4b3aea6b78cbe80b59b9649048de9',1,'KDataFrame.h']]],
+  ['top_2emd_28',['Top.md',['../Top_8md.html',1,'']]],
+  ['tvstring_29',['tvString',['../KDataFrame_8h.html#ac1368abe293cd4978a199b2770dbb3bf',1,'KDataFrame.h']]]
 ];

@@ -1,5 +1,3 @@
-# Pandas-like CSV Parser
-
 \image html header.png width=80%
 
 ![](https://img.shields.io/badge/csv_parser-green)
@@ -16,7 +14,6 @@
 
 ということを目標に開発を始めたCSV Parserです.
 
-- [Pandas-like CSV Parser](#pandas-like-csv-parser)
 - [C++でもpandasみたいなことがしたい!](#cでもpandasみたいなことがしたい)
 - [基本情報](#基本情報)
 - [使い方](#使い方)
@@ -153,7 +150,7 @@ int main (int argc, char **argv)
         - `df.Get<型>("カラム名")`
         - テスト段階であることもあって`int`, `double`のみ対応. これから増やしていく.
 
-[リファレンスガイド(作成中)]() 
+[**リファレンスガイドはこちら**](https://kyasya.github.io/Pandas-like-csv-parser/) 
 
 # 生まれた経緯
 
