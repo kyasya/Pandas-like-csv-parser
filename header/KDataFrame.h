@@ -1,6 +1,6 @@
 /**
  * @file KDataFrame.h
- * @brief pandas module like CSV parser (ver beta 0.0.0)
+ * @brief pandas module like CSV parser
  * @author K. Kotera
  * @date 2024-10-31
  * @version b 1.0

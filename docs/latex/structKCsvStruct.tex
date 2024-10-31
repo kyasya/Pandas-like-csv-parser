@@ -1,0 +1,132 @@
+\hypertarget{structKCsvStruct}{}\doxysection{KCsv\+Struct Struct Reference}
+\label{structKCsvStruct}\index{KCsvStruct@{KCsvStruct}}
+
+
+CSVファイルの情報を記録  
+
+
+
+
+{\ttfamily \#include $<$KData\+Frame.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{structKCsvStruct_ada1ad4692684e838e1415b171531b42e}{Keys}} () const
+\begin{DoxyCompactList}\small\item\em カラムのキーを取得 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structKCsvStruct_afcc6b9cd688720847633247d802ce029}{n\+Skip}} = 0
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{structKCsvStruct_a165e1f275f56630bcc72445f99baad2a}{Comments}}
+\begin{DoxyCompactList}\small\item\em コメントを保存 \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{structKCsvStruct_ae0da02f5dee59a28de9bb7efd91ad492}{column\+Name}}
+\begin{DoxyCompactList}\small\item\em カラム名を保存 \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, int $>$ \mbox{\hyperlink{structKCsvStruct_a566d60973b59e9f27ca21ea80b5c257a}{mcolumn\+Name}}
+\item 
+int \mbox{\hyperlink{structKCsvStruct_a664b51f9af424a5438b5fa301821c1b8}{Events}}
+\item 
+int \mbox{\hyperlink{structKCsvStruct_aaac5aa95c68ee1f5b386d47185f86e5a}{Table\+Width\+Max}} = 100
+\begin{DoxyCompactList}\small\item\em テーブルの幅の最大値 \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{structKCsvStruct_a93bf16880e3abfb52dd8e1f3ead7d6ee}{Widthcolumn\+Name}}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{structKCsvStruct_a45b6ccf2c111c56d3fa8fad4b36c710a}{Width\+Data}}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{structKCsvStruct_a5fb69342da44096b831a8563ad5ba2fd}{Width\+Table\+Cols}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+CSVファイルの情報を記録 
+
+CSVファイルにおける、コメント、カラム名、全データのイベント数を記録. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structKCsvStruct_ada1ad4692684e838e1415b171531b42e}\label{structKCsvStruct_ada1ad4692684e838e1415b171531b42e}} 
+\index{KCsvStruct@{KCsvStruct}!Keys@{Keys}}
+\index{Keys@{Keys}!KCsvStruct@{KCsvStruct}}
+\doxysubsubsection{\texorpdfstring{Keys()}{Keys()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ KCsv\+Struct\+::\+Keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+カラムのキーを取得 
+
+\begin{DoxyReturn}{Returns}
+カラムの名前をstd\+::vector$<$std\+::string$>$で返します 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structKCsvStruct_ae0da02f5dee59a28de9bb7efd91ad492}\label{structKCsvStruct_ae0da02f5dee59a28de9bb7efd91ad492}} 
+\index{KCsvStruct@{KCsvStruct}!columnName@{columnName}}
+\index{columnName@{columnName}!KCsvStruct@{KCsvStruct}}
+\doxysubsubsection{\texorpdfstring{columnName}{columnName}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ KCsv\+Struct\+::column\+Name}
+
+
+
+カラム名を保存 
+
+\mbox{\Hypertarget{structKCsvStruct_a165e1f275f56630bcc72445f99baad2a}\label{structKCsvStruct_a165e1f275f56630bcc72445f99baad2a}} 
+\index{KCsvStruct@{KCsvStruct}!Comments@{Comments}}
+\index{Comments@{Comments}!KCsvStruct@{KCsvStruct}}
+\doxysubsubsection{\texorpdfstring{Comments}{Comments}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ KCsv\+Struct\+::\+Comments}
+
+
+
+コメントを保存 
+
+\mbox{\Hypertarget{structKCsvStruct_a664b51f9af424a5438b5fa301821c1b8}\label{structKCsvStruct_a664b51f9af424a5438b5fa301821c1b8}} 
+\index{KCsvStruct@{KCsvStruct}!Events@{Events}}
+\index{Events@{Events}!KCsvStruct@{KCsvStruct}}
+\doxysubsubsection{\texorpdfstring{Events}{Events}}
+{\footnotesize\ttfamily int KCsv\+Struct\+::\+Events}
+
+\mbox{\Hypertarget{structKCsvStruct_a566d60973b59e9f27ca21ea80b5c257a}\label{structKCsvStruct_a566d60973b59e9f27ca21ea80b5c257a}} 
+\index{KCsvStruct@{KCsvStruct}!mcolumnName@{mcolumnName}}
+\index{mcolumnName@{mcolumnName}!KCsvStruct@{KCsvStruct}}
+\doxysubsubsection{\texorpdfstring{mcolumnName}{mcolumnName}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, int$>$ KCsv\+Struct\+::mcolumn\+Name}
+
+\mbox{\Hypertarget{structKCsvStruct_afcc6b9cd688720847633247d802ce029}\label{structKCsvStruct_afcc6b9cd688720847633247d802ce029}} 
+\index{KCsvStruct@{KCsvStruct}!nSkip@{nSkip}}
+\index{nSkip@{nSkip}!KCsvStruct@{KCsvStruct}}
+\doxysubsubsection{\texorpdfstring{nSkip}{nSkip}}
+{\footnotesize\ttfamily int KCsv\+Struct\+::n\+Skip = 0}
+
+\mbox{\Hypertarget{structKCsvStruct_aaac5aa95c68ee1f5b386d47185f86e5a}\label{structKCsvStruct_aaac5aa95c68ee1f5b386d47185f86e5a}} 
+\index{KCsvStruct@{KCsvStruct}!TableWidthMax@{TableWidthMax}}
+\index{TableWidthMax@{TableWidthMax}!KCsvStruct@{KCsvStruct}}
+\doxysubsubsection{\texorpdfstring{TableWidthMax}{TableWidthMax}}
+{\footnotesize\ttfamily int KCsv\+Struct\+::\+Table\+Width\+Max = 100}
+
+
+
+テーブルの幅の最大値 
+
+\mbox{\Hypertarget{structKCsvStruct_a93bf16880e3abfb52dd8e1f3ead7d6ee}\label{structKCsvStruct_a93bf16880e3abfb52dd8e1f3ead7d6ee}} 
+\index{KCsvStruct@{KCsvStruct}!WidthcolumnName@{WidthcolumnName}}
+\index{WidthcolumnName@{WidthcolumnName}!KCsvStruct@{KCsvStruct}}
+\doxysubsubsection{\texorpdfstring{WidthcolumnName}{WidthcolumnName}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ KCsv\+Struct\+::\+Widthcolumn\+Name}
+
+\mbox{\Hypertarget{structKCsvStruct_a45b6ccf2c111c56d3fa8fad4b36c710a}\label{structKCsvStruct_a45b6ccf2c111c56d3fa8fad4b36c710a}} 
+\index{KCsvStruct@{KCsvStruct}!WidthData@{WidthData}}
+\index{WidthData@{WidthData}!KCsvStruct@{KCsvStruct}}
+\doxysubsubsection{\texorpdfstring{WidthData}{WidthData}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ KCsv\+Struct\+::\+Width\+Data}
+
+\mbox{\Hypertarget{structKCsvStruct_a5fb69342da44096b831a8563ad5ba2fd}\label{structKCsvStruct_a5fb69342da44096b831a8563ad5ba2fd}} 
+\index{KCsvStruct@{KCsvStruct}!WidthTableCols@{WidthTableCols}}
+\index{WidthTableCols@{WidthTableCols}!KCsvStruct@{KCsvStruct}}
+\doxysubsubsection{\texorpdfstring{WidthTableCols}{WidthTableCols}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ KCsv\+Struct\+::\+Width\+Table\+Cols}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+header/\mbox{\hyperlink{KDataFrame_8h}{KData\+Frame.\+h}}\end{DoxyCompactItemize}
