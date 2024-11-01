@@ -1,11 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "cegikmnostw~",
+  0: "cegiklmnopstw~でサデ使基更生目簡配",
   1: "k",
   2: "kt",
   3: "cgikmos~",
   4: "cemntw",
-  5: "kt"
+  5: "kt",
+  6: "clmp"
 };
 
 var indexSectionNames =
@@ -15,7 +16,8 @@ var indexSectionNames =
   2: "files",
   3: "functions",
   4: "variables",
-  5: "typedefs"
+  5: "typedefs",
+  6: "pages"
 };
 
 var indexSectionLabels =
@@ -25,6 +27,7 @@ var indexSectionLabels =
   2: "Files",
   3: "Functions",
   4: "Variables",
-  5: "Typedefs"
+  5: "Typedefs",
+  6: "Pages"
 };
 

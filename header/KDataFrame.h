@@ -2,13 +2,14 @@
  * @file KDataFrame.h
  * @brief pandas module like CSV parser
  * @author K. Kotera
- * @date 2024-10-31
- * @version b 1.0
+ * @date 2024-11-01
+ * @version b 1.0.1
  *
  * @details pythonのpandasモジュール的なことができることを目指して開発が始まったCSVパーサ.
- * @note めっちゃ開発段階. C++11以降の環境で動作確認(開発はC++14,17).
+ * @note めっちゃ開発段階. C++17.
  * @par バージョン履歴
- * - b 1.0 (2024-10-30 - 2024-10-31) 初期リリース.
+ * - b 1.0.1 (2024-11-01) 対応バージョンの修正C++14->C++17. 今後C++14に対応予定.
+ * - b 1.0.0 (2024-10-30 - 2024-10-31) 初期リリース.
 */
 #ifndef __KDATAFRAME_H__
 #define __KDATAFRAME_H__
@@ -31,6 +32,14 @@
 
 using KVector = std::variant<int, double, std::string>;
 
+/**
+ * @brief 文字列を自動的に整数、浮動小数点へキャストします.
+ * @param inp_val[in] 変換元の文字列
+ * @return 自動キャストされた値[int, double, string].
+ * @details 文字列のパターンから自動的に整数、浮動小数点へ変換します.
+ * 変換できなかった場合変換は行われず、std::stringとして返します.
+ * @note std::variantがC+17の機能であったため、C++14への対応中です.
+*/
 KVector StringTo(const std::string &inp_val)
 {
     // 正規表現
@@ -109,15 +118,22 @@ struct KCsvStruct
 
 
 /**
-* @brief KDataFrame class
-* @details KDataFrameの本体.実際の操作はこのクラスを使う.
+ * @brief KDataFrame class
+ * CSVパーサの制御クラス. ここだけ触っていればおｋ.
+ * @details KDataFrameの本体.実際の操作はこのクラスを使う.
 */
 class KDataFrame
 {
+    public:
+        /** @brief デフォルトコンストラクタ*/
+        KDataFrame(std::string path="", bool columnName=true);
+        /** @brief デストラクタ*/
+        ~KDataFrame();
     private:
         bool fGcc20 = false;
         std::string Path;
     public:
+        /** @brief ファイル名を指定します*/
         void SetFilename(std::string &path){Path=path;}
 
     private:
@@ -128,22 +144,22 @@ class KDataFrame
         KCsvStruct     DFInfo;
         std::ifstream InpFile;
     public:
-        void Init();
+        void Init(); 
         void Open();
         void Close();
     public:
-        void Scan(std::string col_list="", int events=-2, int width=40);
-        void SetTableWidth(int width=100){DFInfo.TableWidthMax=width;}
+        void Scan(std::string col_list="", int events=-2, int width=-1);
+        /** @brief 表の横幅を指定します.*/
+        void SetTableWidth(int width=100){DFInfo.TableWidthMax=width;} 
+        /** @brief 全データのイベント数を数えます.*/
         int  GetEntries() const {return DFInfo.Events;}
     // 値の取得関係
     public:
+        /** @brief CSVファイルの基本情報をKCsvStruct class形式で取得します.*/
         KCsvStruct GetDFInfo() const {return DFInfo;}
         std::vector<std::string> GetcolumnStr(std::string column);
         template<class T> std::vector<T> Get(std::string column);
         std::vector<std::string> operator[] (const std::string column);
-    public:
-        KDataFrame(std::string path="", bool columnName=true);
-        ~KDataFrame();
 };
 
 
@@ -289,13 +305,14 @@ void KDataFrame::Open()
 /** 
  * @brief 読み込んだファイルの情報を一覧表示します.
  * @param[in] col_list 読み込むカラムを指定(未実装).
- * @param[in] events 表示する行数を指定(default=20)
- * @param[in] width Tableの最大幅
+ * @param[in] events 表示する行数を指定(default=-2)
+ * -2: 20行以下まで表示, -1: 全表示(未実装), その他は指定した行数まで
+ * @param[in] width Tableの最大幅(default=-1: デフォルト値:100を使用)
  * @details だたし、非常に長いデータが格納されている場合スキップされます.スキップの基準はwidth変数によって指定できます.
 */
 void KDataFrame::Scan(std::string col_list, int events, int width)
 {
-    KDataFrame::SetTableWidth(width);
+    if(width   >0) KDataFrame::SetTableWidth(width);
     if(events==-2) events = 20;
 
     int TotalWidth = 0;

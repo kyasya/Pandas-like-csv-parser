@@ -27,12 +27,13 @@ var NAVTREE =
   [ "Pandas module like CSV Parser", "index.html", [
     [ "C++でもpandasみたいなことがしたい!", "index.html#autotoc_md0", null ],
     [ "基本情報", "index.html#autotoc_md1", null ],
-    [ "使い方", "index.html#autotoc_md2", [
-      [ "配布物 & ディレクトリ構造", "index.html#autotoc_md3", null ],
-      [ "サンプルプログラムの使い方", "index.html#autotoc_md4", null ],
-      [ "簡単なAPIリファレンス", "index.html#autotoc_md5", null ]
+    [ "使い方", "index.html#autotoc_md4", [
+      [ "目次的なやつ", "index.html#autotoc_md5", null ],
+      [ "配布物 & ディレクトリ構造", "index.html#autotoc_md6", null ],
+      [ "サンプルプログラムの使い方", "index.html#autotoc_md7", null ],
+      [ "簡単なAPIリファレンス", "index.html#autotoc_md8", null ]
     ] ],
-    [ "生まれた経緯", "index.html#autotoc_md6", null ],
+    [ "生まれた経緯", "index.html#autotoc_md9", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

@@ -4,7 +4,8 @@
 ![](https://img.shields.io/badge/release-b1.0-green)
 ![](https://img.shields.io/badge/release-developing-red)
 ![](https://img.shields.io/badge/implementation-header_only-red)
-![](https://img.shields.io/badge/c%2B%2B%20stable%20ver-14%20%7C%2017-blue)
+<!-- ![](https://img.shields.io/badge/c%2B%2B%20stable%20ver-14%20%7C%2017-blue) -->
+![](https://img.shields.io/badge/c%2B%2B%20stable%20ver-17-blue)
 ![](https://img.shields.io/badge/compiler-gcc-blue)
 ![](https://img.shields.io/badge/stable_OS-Linux(ubuntu)-yellow)
 ![](https://img.shields.io/badge/license-MIT-yellow)
@@ -16,7 +17,10 @@
 
 - [C++でもpandasみたいなことがしたい!](#cでもpandasみたいなことがしたい)
 - [基本情報](#基本情報)
+      - [更新履歴](#更新履歴)
+      - [更新予定の情報](#更新予定の情報)
 - [使い方](#使い方)
+  - [目次的なやつ](#目次的なやつ)
   - [配布物 \& ディレクトリ構造](#配布物--ディレクトリ構造)
   - [サンプルプログラムの使い方](#サンプルプログラムの使い方)
   - [簡単なAPIリファレンス](#簡単なapiリファレンス)
@@ -26,16 +30,35 @@
 
 - Author: Keasha 改め K. Kotera.
 - 開発開始日: 2024/10/30-.
-- Version: beta 1.0 (2024/10/31).
+- Version: beta 1.0.1 (2024/11/01).
 - Header only?: YES. 単一Headerで配布(他のライブラリとの兼ね合いで今後変わるかもしれないけど全部Header onlyにはする).
 - 動作環境
-  - コンパイラ: C++14以上 (機能としてはC++11のもののみを使ってるのでC++11でも動作はするはず). 
+  - コンパイラ: C++17以上 ~~(機能としてはC++11のもののみを使ってるのでC++11でも動作はするはず)~~.
+    - 勘違いしてた. 現状はC++17以降じゃないと使えない. 近いうちにC++14以上には対応する予定
   - OS: Linux(Ubuntu, CentOS)は確認済み、Windowsでもwslを使えばいける.
     - ただしLinux使用を想定してるため、改行コードが違うWindowsやMacでは動作がうまくいかないと思われ(ref: [とほほ](https://www.tohoho-web.com/wwwxx011.htm))
     - 暇があれば対応したいわね.
 - ライセンス: MIT
 
+#### 更新履歴
+
+- b 1.0.1 (2024/11/01): 
+    - ドキュメントの修正: ~~C++14対応~~ →C++17以降対応, 記述内容を修正.
+    - コードの方もC++14以降に対応できるように修正中.
+- b 1.0.0 (2024/10/31):初リリース
+
+#### 更新予定の情報
+
+- C++14への対応へ向けコードの修正中.
+- 書き込みへの対応.
+- CERN ROOT-likeな書き方ができるようにも準備中.
+
 # 使い方
+
+## 目次的なやつ
+
+- [チュートリアルのソースコード](https://kyasya.github.io/Pandas-like-csv-parser/test_8c.html)
+- [メインの制御クラス(KDataFrame Class)のリファレンス](https://kyasya.github.io/Pandas-like-csv-parser/classKDataFrame.html)
 
 ## 配布物 & ディレクトリ構造
 
@@ -170,3 +193,5 @@ df["Age"]
 ということで「せめて読み出しだけはできるようにしよう…そのほうが結局時短になるわ…」ということで再開発を始めることに…
 
 最終的には読み書きができることを目標です.
+
+研究で使う環境がC++14以上なのでそれに対応できるように作っていきたい(と言いながら初日からミスが発覚したので別の方法を考え中だが…).
