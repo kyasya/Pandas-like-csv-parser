@@ -6,6 +6,7 @@ var KDataFrame_8h =
     [ "tKeyMap", "KDataFrame_8h.html#a459b622b2ecedcc113c808673a417606", null ],
     [ "tKeyUMap", "KDataFrame_8h.html#a6aa4b3aea6b78cbe80b59b9649048de9", null ],
     [ "tvString", "KDataFrame_8h.html#ac1368abe293cd4978a199b2770dbb3bf", null ],
-    [ "operator<<", "KDataFrame_8h.html#a347ba8cb8f50c282fe1086a28fa844fd", null ],
-    [ "StringTo", "KDataFrame_8h.html#aae9d002ff4c7e8b3cc3c0c703d487377", null ]
+    [ "operator<<", "KDataFrame_8h.html#a025d472b3f1a6922d49f1b80cf1bdc40", null ],
+    [ "StringTo", "KDataFrame_8h.html#aae9d002ff4c7e8b3cc3c0c703d487377", null ],
+    [ "StringTo< std::string >", "KDataFrame_8h.html#ab4dc63dd227c1231c7fa579eb45245df", null ]
 ];

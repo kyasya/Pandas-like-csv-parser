@@ -15,8 +15,8 @@
 ![](https://img.shields.io/badge/release-b1.0-green)
 ![](https://img.shields.io/badge/release-developing-red)
 ![](https://img.shields.io/badge/implementation-header_only-red)
-<!-- ![](https://img.shields.io/badge/c%2B%2B%20stable%20ver-14%20%7C%2017-blue) -->
-![](https://img.shields.io/badge/c%2B%2B%20stable%20ver-17-blue)
+![](https://img.shields.io/badge/c%2B%2B%20stable%20ver-14%20%7C%2017-blue)
+<!-- ![](https://img.shields.io/badge/c%2B%2B%20stable%20ver-17-blue) -->
 ![](https://img.shields.io/badge/compiler-gcc-blue)
 ![](https://img.shields.io/badge/stable_OS-Linux(ubuntu)-yellow)
 ![](https://img.shields.io/badge/license-MIT-yellow)
@@ -45,8 +45,7 @@
 - Version: beta 1.0.1 (2024/11/01).
 - Header only?: YES. 単一Headerで配布(他のライブラリとの兼ね合いで今後変わるかもしれないけど全部Header onlyにはする).
 - 動作環境
-  - コンパイラ: C++17以上 ~~(機能としてはC++11のもののみを使ってるのでC++11でも動作はするはず)~~.
-    - 勘違いしてた. 現状はC++17以降じゃないと使えない. 近いうちにC++14以上には対応する予定
+  - コンパイラ: C++14以上
   - OS: Linux(Ubuntu, CentOS)は確認済み、Windowsでもwslを使えばいける.
     - ただしLinux使用を想定してるため、改行コードが違うWindowsやMacでは動作がうまくいかないと思われ(ref: [とほほ](https://www.tohoho-web.com/wwwxx011.htm))
     - 暇があれば対応したいわね.
@@ -56,6 +55,9 @@
 
 #### 更新履歴
 
+- b 1.1.0 (2024/11/03): 
+    - C++14対応(修正).
+    - ドキュメントを追加.
 - b 1.0.1 (2024/11/01): 
     - ドキュメントの修正: ~~C++14対応~~ →C++17以降対応, 記述内容を修正.
     - コードの方もC++14以降に対応できるように修正中.
@@ -63,7 +65,6 @@
 
 #### 更新予定の情報
 
-- C++14への対応へ向けコードの修正中.
 - 書き込みへの対応.
 - CERN ROOT-likeな書き方ができるようにも準備中.
 
