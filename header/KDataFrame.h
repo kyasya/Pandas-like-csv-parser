@@ -35,15 +35,16 @@ using tKeyMap  = std::map          <std::string, int>;
 using tKeyUMap = std::unordered_map<std::string, int>;
 
 #if __cplusplus > 201402L
+using KVector = std::variant<int, double, std::string>;
 /**
  * @brief 文字列を自動的に整数、浮動小数点へキャストします.
  * @param inp_val[in] 変換元の文字列
  * @return 自動キャストされた値[int, double, string].
  * @details 文字列のパターンから自動的に整数、浮動小数点へ変換します.
  * 変換できなかった場合変換は行われず、std::stringとして返します.
- * @note std::variantがC+17の機能であったため、C++14への対応中です.
+ * @note std::variantがC+17以降はこちらの関数が機能します.
+ * 詳細は\ref T StringTo(const std::string &inp_val)を参照してください.
 */
-using KVector = std::variant<int, double, std::string>;
 KVector StringTo(const std::string &inp_val)
 {
     // 正規表現
@@ -66,6 +67,12 @@ KVector StringTo(const std::string &inp_val)
     else return inp_val; // どれにも該当しない場合は文字列として返す
 }
 #else
+/**
+ * @brief 文字列を指定の型へ変換します
+ * @param inp_val[in] 変換元の文字列
+ * @return キャストされた値(int, double).
+ * @note C++14用に実装されました.C++17のStringTo関数はstd::variantによって「自動的に」文字列のキャストが行われます.
+*/
 template<class T> T StringTo(const std::string &inp_val)
 {
     T Result;
@@ -79,7 +86,13 @@ template<class T> T StringTo(const std::string &inp_val)
     // }
     return Result;
 }
-// 特殊化：std::string型の場合はそのまま返す
+/**
+ * @brief 文字列を指定の型へ変換します
+ * @param inp_val[in] 変換元の文字列
+ * @return キャストされた値(int, double).
+ * @details 文字列に対する関数templateの部分特殊化.
+ * @note C++14用に実装されました.C++17のStringTo関数はstd::variantによって「自動的に」文字列のキャストが行われます.
+*/
 template <>
 std::string StringTo<std::string>(const std::string& inp_val)
 {
