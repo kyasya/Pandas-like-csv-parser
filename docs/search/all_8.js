@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['open_0',['Open',['../classKDataFrame.html#a46935cab6198d5ff72dddd1e86028923',1,'KDataFrame']]],
-  ['operator_3c_3c_1',['operator&lt;&lt;',['../KDataFrame_8h.html#a347ba8cb8f50c282fe1086a28fa844fd',1,'KDataFrame.h']]],
-  ['operator_5b_5d_2',['operator[]',['../classKDataFrame.html#a0aa235458d3ed363447278ba558f08ce',1,'KDataFrame']]]
+  ['scan_19',['Scan',['../classKDataFrame.html#a49b70ddfa6d409c2c3ce52399b3e9e43',1,'KDataFrame']]],
+  ['setfilename_20',['SetFilename',['../classKDataFrame.html#abedb6e12ab2d20f5efbdbf93d5b9cf71',1,'KDataFrame']]],
+  ['settablewidth_21',['SetTableWidth',['../classKDataFrame.html#a6f002c7d289dc1902198fd0d4d633e69',1,'KDataFrame']]],
+  ['stringto_22',['StringTo',['../KDataFrame_8h.html#aea123fefd4fc7f22128df7fc4ef70067',1,'KDataFrame.h']]],
+  ['stringto_3c_20std_3a_3astring_20_3e_23',['StringTo&lt; std::string &gt;',['../KDataFrame_8h.html#ab4dc63dd227c1231c7fa579eb45245df',1,'KDataFrame.h']]]
 ];

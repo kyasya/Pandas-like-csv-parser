@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['scan_0',['Scan',['../classKDataFrame.html#a49b70ddfa6d409c2c3ce52399b3e9e43',1,'KDataFrame']]],
-  ['setfilename_1',['SetFilename',['../classKDataFrame.html#abedb6e12ab2d20f5efbdbf93d5b9cf71',1,'KDataFrame']]],
-  ['settablewidth_2',['SetTableWidth',['../classKDataFrame.html#a6f002c7d289dc1902198fd0d4d633e69',1,'KDataFrame']]],
-  ['stringto_3',['StringTo',['../KDataFrame_8h.html#aae9d002ff4c7e8b3cc3c0c703d487377',1,'KDataFrame.h']]]
+  ['widthcolumnname_30',['WidthcolumnName',['../structKCsvStruct.html#a93bf16880e3abfb52dd8e1f3ead7d6ee',1,'KCsvStruct']]],
+  ['widthdata_31',['WidthData',['../structKCsvStruct.html#a45b6ccf2c111c56d3fa8fad4b36c710a',1,'KCsvStruct']]],
+  ['widthtablecols_32',['WidthTableCols',['../structKCsvStruct.html#a5fb69342da44096b831a8563ad5ba2fd',1,'KCsvStruct']]]
 ];

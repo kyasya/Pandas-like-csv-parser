@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['kdataframe_0',['KDataFrame',['../classKDataFrame.html#a0598510e23066b68abf289958fd2fbc1',1,'KDataFrame']]],
-  ['keys_1',['Keys',['../structKCsvStruct.html#a18e66e38145a84dada4b9d3e482f6e77',1,'KCsvStruct']]]
+  ['kdataframe_45',['KDataFrame',['../classKDataFrame.html#a0598510e23066b68abf289958fd2fbc1',1,'KDataFrame']]],
+  ['keys_46',['Keys',['../structKCsvStruct.html#ada1ad4692684e838e1415b171531b42e',1,'KCsvStruct']]]
 ];

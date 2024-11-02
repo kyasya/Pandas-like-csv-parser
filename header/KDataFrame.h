@@ -30,8 +30,11 @@
 #include <regex>
 #include <variant>
 
-using KVector = std::variant<int, double, std::string>;
+using tvString = std::vector<std::string>;
+using tKeyMap  = std::map          <std::string, int>;
+using tKeyUMap = std::unordered_map<std::string, int>;
 
+#if __cplusplus > 201402L
 /**
  * @brief 文字列を自動的に整数、浮動小数点へキャストします.
  * @param inp_val[in] 変換元の文字列
@@ -40,6 +43,7 @@ using KVector = std::variant<int, double, std::string>;
  * 変換できなかった場合変換は行われず、std::stringとして返します.
  * @note std::variantがC+17の機能であったため、C++14への対応中です.
 */
+using KVector = std::variant<int, double, std::string>;
 KVector StringTo(const std::string &inp_val)
 {
     // 正規表現
@@ -61,11 +65,27 @@ KVector StringTo(const std::string &inp_val)
     } 
     else return inp_val; // どれにも該当しない場合は文字列として返す
 }
+#else
+template<class T> T StringTo(const std::string &inp_val)
+{
+    T Result;
+    std::stringstream StrStr(inp_val);
+    
+    StrStr>>Result;
 
-
-using tvString = std::vector<std::string>;
-using tKeyMap  = std::map          <std::string, int>;
-using tKeyUMap = std::unordered_map<std::string, int>;
+    // // 変換が失敗、もしくは変換後にデータが残っている場合は例外を投げる
+    // if (ss.fail() || !ss.eof()) {
+    //     throw std::invalid_argument("Conversion failed for input: " + inp_val);
+    // }
+    return Result;
+}
+// 特殊化：std::string型の場合はそのまま返す
+template <>
+std::string StringTo<std::string>(const std::string& inp_val)
+{
+    return inp_val;
+}
+#endif
 
 /**
  * @brief std::vectorに対する標準出力の<<演算子のオーバーロード.
@@ -193,10 +213,7 @@ KDataFrame::~KDataFrame()
 */
 void KDataFrame::Init()
 {
-    // std::cout<<__cplusplus<<"\n";
-#if __cplusplus >= 202002L  // C++20以降の環境
-    fGcc20 = true;
-#endif
+
 
     auto Bit = [](unsigned bit_no){return (unsigned) 1 << (bit_no);};
 
@@ -208,7 +225,6 @@ void KDataFrame::Init()
     // std::cout<<std::bitset<8>(mRegTag["columnNameEnable"])<<"\n";
     // std::cout<<std::bitset<8>(mRegTag["columnNameEnable"])<<"\n";
 
-    // if(fGcc20) std::cout<<std::format("{:0>60b}", mRegTag["Open"])<<std::endl;
 }
 
 /**
@@ -235,6 +251,8 @@ void KDataFrame::Open()
         std::vector<std::string> Rows;
         std::stringstream SStream(BufLine);
         std::string Cells;
+
+        if(BufLine=="\n") continue;
 
         if (BufLine[0] == '#')
         {
@@ -401,10 +419,14 @@ template<class T> std::vector<T> KDataFrame::Get(std::string column)
 
     for(auto &Val: ValsStr) 
     {
-        auto ThisVal = StringTo(Val);
-    
-        T &ThisVal1 = std::get<T>(ThisVal);
-        Vals.push_back(ThisVal1);
+        #if __cplusplus > 201402L
+                auto ThisVal = StringTo(Val);
+                T &ThisVal1 = std::get<T>(ThisVal);
+                Vals.push_back(ThisVal1);
+        #else
+                auto ThisVal = StringTo<T>(Val);
+                Vals.push_back(ThisVal);
+        #endif
     }
 
     return Vals;
