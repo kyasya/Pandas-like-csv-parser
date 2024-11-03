@@ -277,42 +277,43 @@ void KDataFrame::Open()
         int iData = 0;
         while (std::getline(SStream, Cells, Delimiter)) 
         {
+            // std::cout<<Cells<<" ";
             Rows.push_back(Cells);
             if(fReg & mRegTag["DefinedColName"])
             {
-                DFInfo.WidthData[iData] = std::max(DFInfo.WidthData[iData], (int)Rows[iData].size());
             }
             // ---------
             iData++;
         }
+        // std::cout<<"\naaaaa\n";
         // if(Counter==0) std::cout<<std::endl;
         // std::cout<<"\n";
 
-        if(Counter == 0) // データの取得になるまでカウンターは進まない
+        if(Counter == 0 ) // データの取得になるまでカウンターは進まない
         {
+            DFInfo.WidthData.resize(Rows.size());
             std::vector<std::string> ColNames;
             for(auto iColName=0; iColName<Rows.size(); iColName++)
             {
+                DFInfo.WidthData[iColName] = 0;
+                std::string ColName = "";
+                
                 if(fReg & mRegTag["columnNameEnable"])
                 {
-                    std::string ColName = "";
-                    int nCols = DFInfo.mcolumnName.count(Rows[iColName]);
-                    if(nCols)//
-                    {
-                        ColName = Rows[iColName]+"."+std::to_string(nCols);
-                        DFInfo.mcolumnName[ColName] = iColName;
-                    }
-                    else
-                    {
-                        ColName = Rows[iColName];
-                        DFInfo.mcolumnName[ColName] = iColName;
-                    }
-                    ColNames.push_back(ColName);
+                    ColName = Rows[iColName];
+                    if(DFInfo.mcolumnName.count(ColName)) 
+                        ColName += "."+std::to_string(iColName);
                 }
-                else DFInfo.mcolumnName[std::to_string(iColName)] = iColName;
+                else
+                {
+                    ColName = std::to_string(iColName);
+                }
+                ColNames.push_back(ColName);
+                DFInfo.mcolumnName[ColName] = iColName;
                 // std::cout<<iColName<<":"<<DFInfo.columnName[iColName]<<","<<DFInfo.mcolumnName[Rows[iColName]]<<"\n";
                 // std::cout<<ColNames[iColName].size()<<"\n";
-                DFInfo.WidthcolumnName.push_back((int)ColNames[iColName].size());
+                DFInfo.WidthData[iColName] = (int) ColName.size();
+                DFInfo.WidthcolumnName.push_back((int) ColName.size());
                 // Rows.size();
                 // WidthcolumnName
             }
@@ -320,7 +321,6 @@ void KDataFrame::Open()
 
             // データの幅を保存するための配列を作成
             fReg |= mRegTag["DefinedColName"]; // カラム名を定義完了
-            for(int iCol=0; iCol<ColNames.size(); iCol++) DFInfo.WidthData.push_back(0);
             DFInfo.nSkip++;
         }
 
@@ -330,7 +330,7 @@ void KDataFrame::Open()
     }
 
     DFInfo.Events = Counter;
-    std::cout<<"Event entries="<<GetEntries()<<std::endl;
+    // std::cout<<"Event entries="<<GetEntries()<<std::endl;
 }
 
 /** 
