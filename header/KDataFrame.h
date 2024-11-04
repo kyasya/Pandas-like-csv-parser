@@ -163,7 +163,6 @@ class KDataFrame
         /** @brief デストラクタ*/
         ~KDataFrame();
     private:
-        bool fGcc20 = false;
         std::string Path;
     public:
         /** @brief ファイル名を指定します*/
@@ -274,17 +273,8 @@ void KDataFrame::Open()
             continue;
         }
 
-        int iData = 0;
-        while (std::getline(SStream, Cells, Delimiter)) 
-        {
-            // std::cout<<Cells<<" ";
-            Rows.push_back(Cells);
-            if(fReg & mRegTag["DefinedColName"])
-            {
-            }
-            // ---------
-            iData++;
-        }
+        while (std::getline(SStream, Cells, Delimiter))  Rows.push_back(Cells);
+
         // std::cout<<"\naaaaa\n";
         // if(Counter==0) std::cout<<std::endl;
         // std::cout<<"\n";
@@ -292,6 +282,9 @@ void KDataFrame::Open()
         if(Counter == 0 ) // データの取得になるまでカウンターは進まない
         {
             DFInfo.WidthData.resize(Rows.size());
+            DFInfo.WidthcolumnName.resize(Rows.size());
+            DFInfo.WidthTableCols.resize(Rows.size());
+
             std::vector<std::string> ColNames;
             for(auto iColName=0; iColName<Rows.size(); iColName++)
             {
@@ -313,7 +306,7 @@ void KDataFrame::Open()
                 // std::cout<<iColName<<":"<<DFInfo.columnName[iColName]<<","<<DFInfo.mcolumnName[Rows[iColName]]<<"\n";
                 // std::cout<<ColNames[iColName].size()<<"\n";
                 DFInfo.WidthData[iColName] = (int) ColName.size();
-                DFInfo.WidthcolumnName.push_back((int) ColName.size());
+                DFInfo.WidthcolumnName[iColName] = (int) ColName.size();
                 // Rows.size();
                 // WidthcolumnName
             }
@@ -321,11 +314,19 @@ void KDataFrame::Open()
 
             // データの幅を保存するための配列を作成
             fReg |= mRegTag["DefinedColName"]; // カラム名を定義完了
+            // std::cout<<"aaaaaaaa\n";
             DFInfo.nSkip++;
         }
 
-        SStream.clear();
+        if((Counter > 0) && (fReg & mRegTag["DefinedColName"]))
+        {
+            for(auto i=0; i<Rows.size(); i++)
+            {
+                DFInfo.WidthData[i] = std::max(DFInfo.WidthData[i], (int) Rows[i].size());
+            }
+        }
 
+        SStream.clear();
         Counter++;
     }
 
@@ -347,13 +348,11 @@ void KDataFrame::Scan(std::string col_list, int events, int width)
     if(events==-2) events = 20;
 
     int TotalWidth = 0;
-    if(DFInfo.WidthTableCols.size()==0)
+    DFInfo.WidthTableCols.resize(DFInfo.WidthcolumnName.size());
+    for(auto i=0; i<DFInfo.WidthcolumnName.size(); i++)
     {
-        for(auto i=0; i<DFInfo.WidthcolumnName.size(); i++)
-        {
-            DFInfo.WidthTableCols.push_back(std::max(DFInfo.WidthcolumnName[i], DFInfo.WidthData[i]));
-            TotalWidth += DFInfo.WidthTableCols[i]+2;
-        }
+        DFInfo.WidthTableCols[i] = std::max(DFInfo.WidthData[i], DFInfo.WidthcolumnName[i]);
+        TotalWidth += DFInfo.WidthTableCols[i];
     }
 
     if(InpFile.is_open())
@@ -382,7 +381,7 @@ void KDataFrame::Scan(std::string col_list, int events, int width)
                     if(DFInfo.WidthTableCols[ColNo]>30) continue;
                 }
 
-                RowTitle<<std::setw(DFInfo.WidthTableCols[ColNo])<<Cells<<" | ";
+                RowTitle<<std::setw(DFInfo.WidthTableCols[ColNo]+2)<<Cells<<" | ";
                 ColNo++;
             }
             if(Counter==0)

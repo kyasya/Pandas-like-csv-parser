@@ -89,8 +89,8 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="textblock"><p><a class="anchor" id="md_Top"></a> </p><div class="image">
 <img src="header.png" alt="" width="80%"/>
 </div>
-<p><img src="https://img.shields.io/badge/csv_parser-green" alt="" class="inline"/> <img src="https://img.shields.io/badge/release-b1.0-green" alt="" class="inline"/> <img src="https://img.shields.io/badge/release-developing-red" alt="" class="inline"/> <img src="https://img.shields.io/badge/implementation-header_only-red" alt="" class="inline"/></p>
-<p><img src="https://img.shields.io/badge/c%2B%2B%20stable%20ver-17-blue" alt="" class="inline"/> <img src="https://img.shields.io/badge/compiler-gcc-blue" alt="" class="inline"/> <img src="https://img.shields.io/badge/stable_OS-Linux(ubuntu)-yellow" alt="" class="inline"/> <img src="https://img.shields.io/badge/license-MIT-yellow" alt="" class="inline"/> <img src="https://img.shields.io/badge/developer-Keasha-purple" alt="" class="inline"/></p>
+<p><img src="https://img.shields.io/badge/csv_parser-green" alt="" class="inline"/> <img src="https://img.shields.io/badge/release-b1.0-green" alt="" class="inline"/> <img src="https://img.shields.io/badge/release-developing-red" alt="" class="inline"/> <img src="https://img.shields.io/badge/implementation-header_only-red" alt="" class="inline"/> <img src="https://img.shields.io/badge/c%2B%2B%20stable%20ver-14%20%7C%2017-blue" alt="" class="inline"/></p>
+<p><img src="https://img.shields.io/badge/compiler-gcc-blue" alt="" class="inline"/> <img src="https://img.shields.io/badge/stable_OS-Linux(ubuntu)-yellow" alt="" class="inline"/> <img src="https://img.shields.io/badge/license-MIT-yellow" alt="" class="inline"/> <img src="https://img.shields.io/badge/developer-Keasha-purple" alt="" class="inline"/></p>
 <h1><a class="anchor" id="autotoc_md0"></a>
 C++でもpandasみたいなことがしたい!</h1>
 <p>ということを目標に開発を始めたCSV Parserです.</p>
@@ -118,10 +118,7 @@ C++でもpandasみたいなことがしたい!</h1>
 <li>Version: beta 1.0.1 (2024/11/01).</li>
 <li>Header only?: YES. 単一Headerで配布(他のライブラリとの兼ね合いで今後変わるかもしれないけど全部Header onlyにはする).</li>
 <li>動作環境<ul>
-<li>コンパイラ: C++17以上 ~~(機能としてはC++11のもののみを使ってるのでC++11でも動作はするはず)~~.<ul>
-<li>勘違いしてた. 現状はC++17以降じゃないと使えない. 近いうちにC++14以上には対応する予定</li>
-</ul>
-</li>
+<li>コンパイラ: C++14以上</li>
 <li>OS: Linux(Ubuntu, CentOS)は確認済み、Windowsでもwslを使えばいける.<ul>
 <li>ただしLinux使用を想定してるため、改行コードが違うWindowsやMacでは動作がうまくいかないと思われ(ref: <a href="https://www.tohoho-web.com/wwwxx011.htm">とほほ</a>)</li>
 <li>暇があれば対応したいわね.</li>
@@ -134,6 +131,11 @@ C++でもpandasみたいなことがしたい!</h1>
 <h4><a class="anchor" id="autotoc_md2"></a>
 更新履歴</h4>
 <ul>
+<li>b 1.1.0 (2024/11/03):<ul>
+<li>C++14対応(修正).</li>
+<li>ドキュメントを追加.</li>
+</ul>
+</li>
 <li>b 1.0.1 (2024/11/01):<ul>
 <li>ドキュメントの修正: <strike>C++14対応</strike> →C++17以降対応, 記述内容を修正.</li>
 <li>コードの方もC++14以降に対応できるように修正中.</li>
@@ -144,7 +146,6 @@ C++でもpandasみたいなことがしたい!</h1>
 <h4><a class="anchor" id="autotoc_md3"></a>
 更新予定の情報</h4>
 <ul>
-<li>C++14への対応へ向けコードの修正中.</li>
 <li>書き込みへの対応.</li>
 <li>CERN ROOT-likeな書き方ができるようにも準備中.</li>
 </ul>
